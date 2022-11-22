@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Cesar",
+        "last": "Méndez"
+      },
+      "location": {
+        "street": {
+          "number": 2519,
+          "name": "Calle de La Democracia"
+        },
+        "city": "Valladolid",
+        "state": "Castilla y León",
+        "country": "Spain",
+        "postcode": 21073,
+        "coordinates": {
+          "latitude": "-32.7077",
+          "longitude": "-12.5731"
+        },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "email": "cesar.mendez@example.com",
+      "login": {
+        "uuid": "38e48f51-d40b-4b99-8aba-e70e05f6f154",
+        "username": "silverostrich921",
+        "password": "mustard",
+        "salt": "2qaSTJLd",
+        "md5": "942cab498dedd53691beaca866e800a4",
+        "sha1": "5720de4fc9584dcee59cd3b2a614b582d680cedb",
+        "sha256": "163d65fd5cde43da857d5c88898508f4914bfd92648864e3ad69ada5ee02993c"
+      },
+      "dob": {
+        "date": "1971-11-21T14:20:10.629Z",
+        "age": 50
+      },
+      "registered": {
+        "date": "2003-04-20T16:50:02.038Z",
+        "age": 19
+      },
+      "phone": "903-939-032",
+      "cell": "696-668-561",
+      "id": {
+        "name": "DNI",
+        "value": "83391707-L"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/93.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/93.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/93.jpg"
+      },
+      "nat": "ES"
+    }
+  ],
+  "info": {
+    "seed": "6405d1f66502510f",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
