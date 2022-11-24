@@ -26,6 +26,10 @@ public abstract class AbstractPage {
         driver.get(url);
     }
 
+    protected List<WebElement> getElements(By selector) {
+        return driver.findElements(selector);
+    }
+
     protected WebElement waitForElement(By selector) {
         return new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.presenceOfElementLocated(selector));

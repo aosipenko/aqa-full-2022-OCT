@@ -22,7 +22,7 @@ public class GooglePage extends AbstractPage {
     }
 
     public void acceptCookies() {
-        List<WebElement> cookiesWrapper = waitForElements(By.id(COOKIES_WRAPPER));
+        List<WebElement> cookiesWrapper = getElements(By.id(COOKIES_WRAPPER));
         if (!cookiesWrapper.isEmpty() && cookiesWrapper.get(0).isDisplayed()) {
             List<WebElement> buttons = waitForElements(By.tagName("button"));
             buttons.get(3).click();
