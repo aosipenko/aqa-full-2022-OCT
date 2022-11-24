@@ -5,20 +5,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverHolder {
-  private final WebDriver driver;
-  private final static WebDriverHolder instance = new WebDriverHolder();
+    private WebDriver driver;
+    private final static WebDriverHolder instance = new WebDriverHolder();
 
-  private WebDriverHolder() {
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
-  }
+    private WebDriverHolder() {
+        try {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+        } catch (Exception e) {
+            driver = null;
+            e.printStackTrace();
+        }
+    }
 
-  public static WebDriverHolder getInstance() {
-    return instance;
-  }
+    public static WebDriverHolder getInstance() {
+        return instance;
+    }
 
-  public WebDriver getDriver() {
-    return driver;
-  }
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
