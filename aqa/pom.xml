@@ -86,7 +86,7 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.13</version>
         </dependency>
-<!--        CUCUMBER-->
+        <!--        CUCUMBER-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -120,6 +120,12 @@
             <version>5.9.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.19.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -141,6 +147,7 @@
                 <configuration>
                     <includes>
                         <include>**/*CucumberRunner*.java</include>
+                        <include>**/*AllureReportTests*.java</include>
                     </includes>
                 </configuration>
             </plugin>

@@ -2,6 +2,7 @@ package org.prog.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.prog.dto.RandomUserResults;
@@ -13,6 +14,7 @@ public class ApiSteps {
             "https://randomuser.me/api/?inc=gender,name,nat&noinfo&results&gender=%s";
 
     @Given("a random {string} person {string}")
+    @Step("I generate random user")
     public void generateRandomPerson(String gender, String alias) {
         DataHolder.getInstance().put(alias, generateUser(gender));
     }
@@ -25,6 +27,7 @@ public class ApiSteps {
     }
 
     @When("I print a user {string}")
+    @Step("I print user data")
     public void printUser(String alias) {
         System.out.println(((RandomUserResults) DataHolder.getInstance().get(alias))
                 .getResults().get(0).getName().getFirst());
