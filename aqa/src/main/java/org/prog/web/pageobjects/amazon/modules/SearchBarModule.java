@@ -4,7 +4,4 @@ import org.openqa.selenium.WebDriver;
 import org.prog.web.pageobjects.commons.AbstractModule;
 
 public class SearchBarModule extends AbstractModule {
-    protected SearchBarModule(WebDriver driver) {
-        super(driver);
-    }
 }

@@ -5,42 +5,47 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.prog.dto.RandomUserResults;
 import org.prog.util.DataHolder;
-import org.prog.util.PageHolder;
-import org.prog.util.Pages;
 import org.prog.web.pageobjects.GooglePage;
-import org.prog.web.pageobjects.commons.AbstractPage;
+import org.prog.web.pageobjects.hotline.HotlinePage;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class BrowserSteps {
 
-  @Given("A running Chrome driver")
-  public void initDriver() {
+    @Autowired
+    private DataHolder dataHolder;
 
-  }
+    @Autowired
+    private GooglePage googlePage;
 
-  @When("I load {string} page")
-  public void loadGooglePage(String pageName) {
-    AbstractPage page = PageHolder.getInstance().get(Pages.valueOf(pageName));
-    page.loadPage();
-  }
+    @Autowired
+    private HotlinePage hotlinePage;
 
-  @When("google for {string}")
-  public void googlePerson(String alias) {
-    GooglePage googlePage = (GooglePage) PageHolder.getInstance().get(Pages.GOOGLE);
-    googlePage.acceptCookies();
-    googlePage.setSearchValue(firstLastName(alias));
-    googlePage.performSearch(false);
-  }
+    @Given("A running Chrome driver")
+    public void initDriver() {
 
-  @Then("Person {string} is present in searchResults")
-  public void checkSearchResults(String alias) {
-    GooglePage googlePage = (GooglePage) PageHolder.getInstance().get(Pages.GOOGLE);
-    System.out.println(googlePage.getSearchResults().contains(firstLastName(alias)));
-  }
+    }
 
-  private String firstLastName(String alias) {
-    RandomUserResults results = (RandomUserResults) DataHolder.getInstance().get(alias);
-    return String.format("%s %s",
-        results.getResults().get(0).getName().getFirst(),
-        results.getResults().get(0).getName().getLast());
-  }
+    @When("I load google page")
+    public void loadGooglePage() {
+        googlePage.loadPage();
+    }
+
+    @When("google for {string}")
+    public void googlePerson(String alias) {
+        googlePage.acceptCookies();
+        googlePage.setSearchValue(firstLastName(alias));
+        googlePage.performSearch();
+    }
+
+    @Then("Person {string} is present in searchResults")
+    public void checkSearchResults(String alias) {
+        System.out.println(googlePage.getSearchResults().contains(firstLastName(alias)));
+    }
+
+    private String firstLastName(String alias) {
+        RandomUserResults results = (RandomUserResults) dataHolder.get(alias);
+        return String.format("%s %s",
+                results.getResults().get(0).getName().getFirst(),
+                results.getResults().get(0).getName().getLast());
+    }
 }

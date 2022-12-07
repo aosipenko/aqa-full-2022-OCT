@@ -1,6 +1,5 @@
 package org.prog.web.pageobjects.hotline;
 
-import org.openqa.selenium.WebDriver;
 import org.prog.web.pageobjects.commons.AbstractPage;
 import org.prog.web.pageobjects.hotline.modules.AdvertismentModule;
 import org.prog.web.pageobjects.hotline.modules.CategoriesModule;
@@ -13,11 +12,11 @@ public class HotlinePage extends AbstractPage {
     private final HeaderModule headerModule;
     private final CategoriesModule categoriesModule;
 
-    public HotlinePage(WebDriver driver) {
-        super(driver, URL);
-        advertismentModule = new AdvertismentModule(driver);
-        headerModule = new HeaderModule(driver);
-        categoriesModule = new CategoriesModule(driver);
+    public HotlinePage() {
+        super(URL);
+        advertismentModule = new AdvertismentModule();
+        headerModule = new HeaderModule();
+        categoriesModule = new CategoriesModule();
     }
 
     public AdvertismentModule onAds() {

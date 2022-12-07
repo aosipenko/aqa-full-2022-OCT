@@ -8,7 +8,7 @@ public class AmazonPage extends AbstractPage {
 
     private SearchBarModule searchBarModule;
 
-    public AmazonPage(WebDriver driver, String url) {
-        super(driver, url);
+    public AmazonPage(String url) {
+        super(url);
     }
 }

@@ -2,10 +2,15 @@ package org.prog.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.prog.util.DataHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.*;
 
 public class SQLSteps {
+
+    @Autowired
+    private DataHolder dataHolder;
 
     private final static String DROP_USER =
             "delete from PERSONS WHERE id = %s";
